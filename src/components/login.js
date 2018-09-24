@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import firebaseApp from '../config/firebase';
-
+import '../Login.css';
 //Creating a class 
 
 class Login extends Component { 
@@ -70,19 +70,19 @@ createUser(e){
 
 
 loginFacebook(){
-    const provider = new firebase.auth.FacebookAuthProvider();
+  const provider = new firebase.auth.FacebookAuthProvider();
 
-    firebaseApp.auth().signInWithPopup(provider)
-    .then()
-    .then(result => console.log(`${result.user.email} ha iniciado sesión`))
-    .catch(error => console.log(`Error ${error.code}: ${error.message}`));
+  firebaseApp.auth().signInWithPopup(provider)
+  .then()
+  .then(result => console.log(`${result.user.email} ha iniciado sesión`))
+  .catch(error => console.log(`Error ${error.code}: ${error.message}`));
 
 }
 
 
 loginGoogle(){
 
-const provider = new firebase.auth.GoogleAuthProvider();
+  const provider = new firebase.auth.GoogleAuthProvider();
   firebaseApp.auth().signInWithPopup(provider)
   .then()
   .then(result => console.log(`${result.user.email} ha iniciado sesión`))
@@ -111,81 +111,65 @@ render() {
 
     return (
         <div className="Login">
-        <div className="row mt-5">
-            <div className="col">
-              
-            </div>
-            <div className="col">
-            <input 
+
+
+
+
+
+<nav className="navbar navbar-expand-lg nav">
+  <a  id="titule" className="navbar-brand" >DEAFRIEND</a>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+
+  <div className="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+    <ul className="navbar-nav ">
+
+<span  onClick={this.loginFacebook}  className="badge badge-pill badge-primary pt-2 mr-2 mb-1 mt-2" >F</span>
+            <span onClick={this.loginGoogle}  className="badge badge-pill badge-danger pt-2 mr-2 mb-1 mt-2" >G</span>
+
+
+    <input 
             value={this.state.email}
             onChange={this.handleChange}
                 type="email"
                 name='email'
-                className="form-control" 
+                className="form-control mr-2" 
                 placeholder="Email"
                 id="inputEmail"
                 />
-            </div>
-            <div className="col">
-             
-            </div>
-          </div>
-        
-        <div className="row mt-4 mb-4">
-            <div className="col">
-              
-            </div>
-            <div className="col">
-            <input  
+
+
+
+                <input  
             value={this.state.password}
             onChange={this.handleChange}
                 type="password"
                 name='password'
-                className="form-control" 
+                className="form-control mr-2" 
                 placeholder="Password"
                 id="inputPassword"
                 />
-            </div>
-            <div className="col">
-             
-            </div>
-          </div>
-        
-       
+
  {/*  Botones Login y Signup*/} 
-        <div className="row ">
-            <div className="col">
-              
-            </div>
-            <div className="col">
-            <button type="submit" onClick={this.login}  className="btn btn-primary mr-2" >Login</button>
-            
-            <button type="button"  className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+   <button type="submit" onClick={this.login}  className="btn btn-dark mr-2" >Login</button>
+   <button className="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
             Signup
-        </button>
-            
-            </div>
-            <div className="col">
-             
-            </div>
-          </div>
+        </button> 
+    
+        
+      </ul>
+  </div>
+</nav>
+
+<div id="background">
+</div>
 
 
- {/*  Botones Google y Facebook*/}
 
-<div className="row ">
-            <div className="col">
-              
-            </div>
-            <div className="col">
-            <button type="submit" onClick={this.loginFacebook}  className="btn btn-primary mr-2 mt-2" >Login Facebook</button>
-            <button onClick={this.loginGoogle}  className="btn btn-danger mt-2" >Login Google</button>
-            
-            </div>
-            <div className="col">
-             
-            </div>
-          </div>
+    
+
+
 
 {/*Modal*/} 
 

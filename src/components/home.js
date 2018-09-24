@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebaseApp from '../config/firebase';
 //import Login from './components/login';
+import '../Home.css';
 
 class Home extends Component { 
  
@@ -25,11 +26,11 @@ render(){
 
 return(
 
-    <div className="Login">
+    <div className="home">
 
 
-<nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" >Navbar</a>
+<nav className="navbar navbar-expand-lg navbar-light navHome">
+  <a  id="titule" className="navbar-brand" >DEAFRIEND</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -38,7 +39,7 @@ return(
     <ul className="navbar-nav ">
    
     
-        <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a id="titule2" className="nav-link dropdown-toggle"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Bienvenidx
         </a>
         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -51,6 +52,8 @@ return(
       </ul>
   </div>
 </nav>
+
+
 
     </div>
 
