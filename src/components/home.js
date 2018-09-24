@@ -54,6 +54,29 @@ return(
 </nav>
 
 
+ <div className="container-fluid">
+          <div className="card border-light mb-3"  id="card-social">
+          <div className="card-header" id="toPostName"></div>
+          <div className="card-body">
+          <div className="form-group">
+          <label >Escribe aqui tu comentario</label>
+          <textarea className="form-control"id="commentary" rows="1"></textarea>
+          
+          <button type="button" className="btn btn-raised btn-secondary btn-sm" id="button-topost">
+            Publicar  <i className="fas fa-arrow-circle-right"></i></button>                
+          </div>
+        </div>
+          </div>
+      </div>     
+
+
+
+
+
+
+
+
+
 
     </div>
 

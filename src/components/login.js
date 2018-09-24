@@ -124,11 +124,12 @@ render() {
 
   <div className="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
     <ul className="navbar-nav ">
-
+    
+{/*  Botones LoginGoogle y LoginFacebook*/} 
 <span  onClick={this.loginFacebook}  className="badge badge-pill badge-primary pt-2 mr-2 mb-1 mt-2" >F</span>
-            <span onClick={this.loginGoogle}  className="badge badge-pill badge-danger pt-2 mr-2 mb-1 mt-2" >G</span>
+<span onClick={this.loginGoogle}  className="badge badge-pill badge-danger pt-2 mr-2 mb-1 mt-2" >G</span>
 
-
+{/*  Inputs Email y Password*/}
     <input 
             value={this.state.email}
             onChange={this.handleChange}
