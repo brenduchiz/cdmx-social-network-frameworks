@@ -25,11 +25,12 @@ componentDidMount(){
 existe un registro de este en la base de datos de firebase */
   firebasee.auth().onAuthStateChanged((user) =>{
 
-    console.log(user);
-
+    
     if (user) {
       // User is signed in.
       this.setState({user});
+      console.log(this.state.user.displayName)
+      console.log(this.state.user.photoURL)
 
     } else {
       // No user is signed in.
