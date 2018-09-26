@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import firebaseApp from '../config/firebase';
 import '../Login.css';
+
+
+
+
+
+
 //Creating a class 
 
 class Login extends Component { 
@@ -14,7 +20,7 @@ class Login extends Component {
         this.loginGoogle = this.loginGoogle.bind(this);
         this.createUser = this.createUser.bind(this);
         
-        //Se almacenan valores de email y password en variables de estado 
+        //Se almacenan valores en variables de estado 
 this.state ={
 email:"",
 password:"",
@@ -42,30 +48,55 @@ console.log(error);
 
 createUser(e){
     e.preventDefault();
-    firebase.auth().createUserWithEmailAndPassword(this.state.registryEmail, this.state.registryPassword)
+
+  
+
+firebase.auth().createUserWithEmailAndPassword(this.state.registryEmail, this.state.registryPassword)
     
-    .then(() => {
+.then(() => {
+  
+    alert('Your account has been created');
+    const nameUser = this.state.name;
+    console.log(nameUser);
+
+    
+    var user = firebase.auth().currentUser;
+
+    user.updateProfile({
+      displayName: this.state.name
       
-        alert('Your account has been created');
-        const nameUser = this.state.name;
-        console.log(nameUser);
-      })
-    
-    
-    
-    .catch((error)=> {
-  // Handle Errors here.
-  let errorCode = error.code;
-  let errorMessage = error.message;
-  if (errorCode === 'auth/weak-password') {
-    alert('The password is too weak.');
-  } else {
-    alert(errorMessage);
-  }
-  console.log(error);
+    })
+
+
+
+
+
+  })
+
+
+
+.catch((error)=> {
+// Handle Errors here.
+let errorCode = error.code;
+let errorMessage = error.message;
+if (errorCode === 'auth/weak-password') {
+alert('The password is too weak.');
+} else {
+alert(errorMessage);
+}
+console.log(error);
 });
 
+
 }
+
+
+
+
+
+
+
+
 
 
 

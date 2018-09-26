@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import firebaseApp from '../config/firebase';
-//import Login from './components/login';
+import Post from './post';
 import '../Home.css';
 
 class Home extends Component { 
  
-    constructor (){
-        super();
-        this.logout = this.logout.bind(this);
+    constructor (props){
+        super(props);
+ this.logout = this.logout.bind(this);
+
     }
 
 
@@ -21,6 +22,11 @@ class Home extends Component {
             console.log(error);
           });
     }
+
+
+
+
+
 
 render(){
 
@@ -40,7 +46,7 @@ return(
    
     
         <a id="titule2" className="nav-link dropdown-toggle"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Bienvenidx
+          Bienvenidx <span>{this.props.user.displayName}</span>
         </a>
         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a className="dropdown-item" >Perfil</a>
@@ -53,21 +59,8 @@ return(
   </div>
 </nav>
 
-
- <div className="container-fluid">
-          <div className="card border-light mb-3"  id="card-social">
-          <div className="card-header" id="toPostName"></div>
-          <div className="card-body">
-          <div className="form-group">
-          <label >Escribe aqui tu comentario</label>
-          <textarea className="form-control"id="commentary" rows="1"></textarea>
-          
-          <button type="button" className="btn btn-raised btn-secondary btn-sm" id="button-topost">
-            Publicar  <i className="fas fa-arrow-circle-right"></i></button>                
-          </div>
-        </div>
-          </div>
-      </div>     
+<Post user={this.props.user}/>
+ 
 
 
 

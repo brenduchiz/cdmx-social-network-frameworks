@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebasee from './config/firebase';
+import firebaseApp from './config/firebase';
 import Login from './components/login';
 import Home from './components/home';
 import './App.css';
@@ -23,14 +23,18 @@ componentDidMount(){
   authListener(){
 /* Por medio de esta función se verifica el estado del usuario para saber si 
 existe un registro de este en la base de datos de firebase */
-  firebasee.auth().onAuthStateChanged((user) =>{
+  firebaseApp.auth().onAuthStateChanged((user) =>{
 
     
     if (user) {
       // User is signed in.
       this.setState({user});
       console.log(this.state.user.displayName)
-      console.log(this.state.user.photoURL)
+      console.log(this.state.user.providerData['0'].photoURL)
+      //console.log(this.state.user.photoURL)
+
+
+     
 
     } else {
       // No user is signed in.
@@ -47,7 +51,7 @@ existe un registro de este en la base de datos de firebase */
 
         
        
-          {this.state.user ? (<Home />) :(<Login />)}
+          {this.state.user ? (<Home user={ this.state.user}/>) :(<Login />)}
      
       </div>
     );
