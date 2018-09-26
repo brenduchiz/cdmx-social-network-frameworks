@@ -25,9 +25,6 @@ class Home extends Component {
 
 
 
-
-
-
 render(){
 
 return(
@@ -60,16 +57,6 @@ return(
 </nav>
 
 <Post user={this.props.user}/>
- 
-
-
-
-
-
-
-
-
-
 
     </div>
 
