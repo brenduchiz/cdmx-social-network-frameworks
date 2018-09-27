@@ -52,7 +52,7 @@ console.log(this.state.post);
         .then((docRef)=> {
             console.log("Document written with ID: ", docRef.id);
             //console.log(this.props.user.uid)
-
+         
             
 
         
@@ -90,8 +90,8 @@ return(
 
 <button  onClick={this.buttonPost} type="button" className="btn btn-raised btn-secondary btn-sm" id="button-topost">
   Publicar  <i className="fas fa-arrow-circle-right"></i></button>  
+ 
   <Postdata/>
-  
 </div>
 </div>
 </div>

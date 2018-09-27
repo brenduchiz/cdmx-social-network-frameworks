@@ -12,9 +12,7 @@ const db = firebase.firestore();
         super();
 
         this.state = ({
-            name:"",
-            post:"",
-            photo:""
+            posts : []
           }) 
 
 
@@ -24,34 +22,57 @@ const db = firebase.firestore();
     componentDidMount(){
  
         db.collection("users").get().then((querySnapshot) => {
+            const posts = [];
            querySnapshot.forEach((doc) => {
                console.log(`${doc.id} => ${doc.data()}`);
        
                const {name,photo,post } = doc.data();
-             this.setState({
+
+               posts.push({
+                
+                name, 
+                photo,
+                post,
+                id:doc.id
+               
+              });
+
+           console.log(doc.id)
+           console.log(posts)
+           });
+       
+           this.setState({
                  
-               name,
-               post,
-               photo
-       
-       
-           });
-     
-           });
-       
-       
+            posts
+          
+    
+        });
        
        
        });
+     
     }
-
+    
 render(){
-
+    const{posts}=this.state;
 return(  
 
+    
+    <div>
+    {posts.map((item) => (
+    
+    
+    <div key={item.id}>
+    <p>{item.name}</p>
+    <p>{item.post}</p>
 
-
-<div>{this.state.name}</div>);
+    </div>
+))}
+   
+   
+    
+    </div>
+);
 
 }
 
@@ -61,5 +82,3 @@ return(
 
 
 export default Postdata;
-
-
