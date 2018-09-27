@@ -65,6 +65,7 @@ return(
     <div key={item.id}>
     <p>{item.name}</p>
     <p>{item.post}</p>
+    <img  width="100" src={item.photo} alt={item.name} />
 
     </div>
 ))}
